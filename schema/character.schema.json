@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/character.schema.json",
+  "title": "Character",
+  "description": "A character in your RPG universe",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique identifier for this Character",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Character Name",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title as defined by choice of Class or 0-level Occupation",
+      "type": "string"
+    },
+    "experience": {
+      "description": "Total amount of experience points (XP)",
+      "type": "integer"
+    },
+    "level": {
+      "description": "Character level, determined by the amount of XP (calculated)",
+      "type": "integer"
+    },
+    "alignment": {
+      "description": "Character alignment",
+      "type": "string"
+    },
+    "strength": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "agility": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "stamina": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "personality": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "intelligence": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "luck": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        },
+        "modifier": {
+          "description": "(calculated)",
+          "type": "integer"
+        }
+      },
+      "required": ["base"]
+    },
+    "armor_class": {
+      "type": "integer"
+    },
+    "hit_points": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer"
+        }
+      },
+      "required": ["base", "current"]
+    },
+    "base_speed": {
+      "type": "integer"
+    },
+    "fortitude": {
+      "type": "integer"
+    },
+    "reflex": {
+      "type": "integer"
+    },
+    "willpower": {
+      "type": "integer"
+    },
+    "attack_die": {
+      "type": "string"
+    },
+    "critical_die": {
+      "type": "string"
+    },
+    "critical_table": {
+      "type": "string"
+    },
+    "initiative": {
+      "description": "(calculated)",
+      "type": "integer"
+    },
+    "melee_attack": {
+      "description": "(calculated)",
+      "type": "integer"
+    },
+    "melee_damage": {
+      "description": "(calculated)",
+      "type": "integer"
+    },
+    "missile_attack": {
+      "description": "(calculated)",
+      "type": "integer"
+    },
+    "missile_damage": {
+      "description": "(calculated)",
+      "type": "integer"
+    },
+    "birth_sign": {
+      "type": "string"
+    },
+  },
+  "required": ["id", "name", "title", "experience", "alignment", "strength", "agility", "stamina", "personality", "intelligence", "luck", "armor_class", "hit_points", "base_speed", "fortitude", "reflex", "willpower", "attack_die", "critical_die", "critical_table"]
+}
