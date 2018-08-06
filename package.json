@@ -1,0 +1,25 @@
+{
+  "name": "digital_character_sheet",
+  "version": "0.0.1",
+  "description": "a character sheet app for friends to use on DCC/MCC games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-loader": "7.1.5",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-redux": "5.0.7",
+    "redux": "4.0.0",
+    "webpack": "4.16.4",
+    "webpack-dev-server": "3.1.5",
+    "webpack-serve": "2.0.2"
+  }
+}
