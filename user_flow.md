@@ -1,5 +1,5 @@
-#User Flow
-###Steps:
+# User Flow
+### Steps:
 
 1. Log in
     - Via Google?
