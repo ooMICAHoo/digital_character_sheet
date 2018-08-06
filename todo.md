@@ -1,7 +1,7 @@
 # Todo
 
 ## Schema
-- [X] Character (Base)
+- [X] ~~Character (Base)~~
 - [ ] expand "inventory" to other categories (maybe?): armor, weapons, equipment, funds, artifacts, etc.
 - [ ] MCC Character (extending Base)
 - [ ] Mutations
