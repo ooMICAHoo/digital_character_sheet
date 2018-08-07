@@ -1,5 +1,8 @@
 # Todo
 
+## Devops
+- [ ] code linting
+
 ## Schema
 - [X] ~~Character (Base)~~
 - [ ] expand "inventory" to other categories (maybe?): armor, weapons, equipment, funds, artifacts, etc.
@@ -7,7 +10,12 @@
 - [ ] Mutations
 - [ ] Party (collection of Characters)
 - [ ] Objects (equipment, weapons, artifacts, etc.)
+- [ ] Spells
 - [ ] Wetware
+
+## Server
+- [ ] create simple server app to deliver JSON
+- [ ] data storage (document DB)
 
 ## UI
 - [ ] Sketches of Character layout
