@@ -13,6 +13,10 @@
       "description": "Character Name",
       "type": "string"
     },
+    "class": {
+      "description": "Race / Genotype",
+      "type": "string"
+    },
     "title": {
       "description": "Title as defined by choice of Class or 0-level Occupation",
       "type": "string"
@@ -188,5 +192,5 @@
       "type": "string"
     },
   },
-  "required": ["id", "name", "title", "experience", "alignment", "strength", "agility", "stamina", "personality", "intelligence", "luck", "armor_class", "hit_points", "base_speed", "fortitude", "reflex", "willpower", "attack_die", "critical_die", "critical_table"]
+  "required": ["id", "name", "title", "experience", "alignment", "strength", "agility", "stamina", "personality", "intelligence", "luck", "hit_points"]
 }
