@@ -1,13 +1,10 @@
 import { constants } from '../actions/character';
 
-const reducer = (state = [], action) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
-    case constants.add:
-      return [
-        ...state,
-        {},
-      ];
-    default
+    case constants.ADD:
+      return {};
+    default:
       return state;
   }
 };

@@ -1,29 +1,15 @@
-import { constants } from '../actions/character';
-import { applyReducer } from './store';
+import { constants } from '../actions/party';
 
-const initialState = {
-  active: null,
-  list: [],
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case constants.ADD:
+      return [
+        ...state,
+        {},
+      ];
+    default:
+      return state;
+  }
 };
 
-// ADD
-const add = (state, action) => {
-  // @NOTE should the UI change to 'party show' view or stay on 'party index'?
-  const active = {
-    id: action.id,
-  };
-
-  // 
-  const list = [...state.list, active];
-  return {
-    ...state,
-    active,
-    list,
-  };
-}
-
-const reducers = {
-  [constants.ADD]: add,
-}
-
-export default applyReducer(reducer, initialState);
+export default reducer;

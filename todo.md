@@ -1,7 +1,7 @@
 # Todo
 
 ## Devops
-- [ ] code linting
+- [X] code linting (eslint - airbnb)
 
 ## Schema
 - [X] ~~Character (Base)~~

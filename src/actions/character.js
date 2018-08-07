@@ -1,4 +1,4 @@
-const constants = {
+export const constants = {
   add: 'CHARACTER_ADD',
   change: 'CHARACTER_CHANGE',
   delete: 'CHARACTER_DELETE',
@@ -11,5 +11,4 @@ const add = () => ({
 
 export default {
   add,
-  constants
 };
