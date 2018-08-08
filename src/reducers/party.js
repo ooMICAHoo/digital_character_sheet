@@ -1,7 +1,7 @@
 import { constants } from '../actions/party';
 
 const reducer = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case constants.ADD:
       return [
         ...state,
