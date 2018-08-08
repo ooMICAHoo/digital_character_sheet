@@ -2,6 +2,7 @@
 
 ## Devops
 - [X] code linting (eslint - airbnb)
+- [X] webpack
 
 ## Schema
 - [X] ~~Character (Base)~~
