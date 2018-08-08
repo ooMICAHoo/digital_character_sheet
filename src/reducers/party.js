@@ -5,7 +5,7 @@ const reducer = (state = [], action) => {
     case constants.ADD:
       return [
         ...state,
-        {},
+        action.id,
       ];
     default:
       return state;

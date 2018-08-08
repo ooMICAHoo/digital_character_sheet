@@ -5,7 +5,7 @@ import Party from './Party';
 const App = () => (
   <div>
     <h1>
-      Test React App
+      CREATURE CRAWL
     </h1>
     <Party />
   </div>
