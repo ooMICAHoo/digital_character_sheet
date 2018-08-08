@@ -1,8 +1,13 @@
 import React from 'react';
 
+import Party from './Party';
+
 const App = () => (
   <div>
-    Test React App
+    <h1>
+      Test React App
+    </h1>
+    <Party />
   </div>
 );
 
