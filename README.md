@@ -24,3 +24,12 @@ Crunching numbers mid-game can take away from immersion and confuse new PCs. Thi
 > Improve visual design/layout of character data
 
 Parsing character sheets is dizzying! We hope to create a visually appealing and efficient interface.
+
+## Install
+At some point, the application will be available on a public website. For now, run the application locally following these steps:
+```
+git clone git@github.com:ooMICAHoo/digital_character_sheet.git
+cd digital_character_sheet
+npm ci --no-progress
+npm start
+```
