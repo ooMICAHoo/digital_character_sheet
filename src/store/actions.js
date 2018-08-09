@@ -6,11 +6,12 @@
  * action type constants
  */
 export const constants = {
-  ADD: 'PARTY_ADD',
-  CHANGE: 'PARTY_CHANGE',
-  DESTRY: 'PARTY_DESTROY',
-  INDEX: 'PARTY_INDEX',
-  SHOW: 'PARTY_SHOW',
+  ADD_PARTY: 'ADD_PARTY',
+  ADD_CHARACTER: 'ADD_CHARACTER',
+  // CHANGE: 'PARTY_CHANGE',
+  // DESTRY: 'PARTY_DESTROY',
+  // INDEX: 'PARTY_INDEX',
+  // SHOW: 'PARTY_SHOW',
 };
 
 /**
@@ -18,11 +19,19 @@ export const constants = {
  */
 
 // create a new party
-const add = id => ({
-  type: constants.ADD,
+const addParty = id => ({
+  type: constants.ADD_PARTY,
   id,
 });
 
+// create a new party
+const addCharacter = (partyId, id) => ({
+  type: constants.ADD_CHARACTER,
+  id,
+  partyId,
+});
+
+/*
 // modify a party at given `path` with new `data`
 const change = (id, path, data) => ({
   type: constants.CHANGE,
@@ -46,7 +55,7 @@ const show = id => ({
 /**
  * asyncronous actions
  */
-
+/*
 // @NOTE this method will end up asyncronous, requesting data from a remote endpoint.
 // for now, it's syncronous.
 const index = () => ({
@@ -57,9 +66,10 @@ const index = () => ({
  * export
  */
 export default {
-  add,
-  change,
-  destroy,
-  show,
-  index,
+  addParty,
+  addCharacter,
+  // change,
+  // destroy,
+  // show,
+  // index,
 };

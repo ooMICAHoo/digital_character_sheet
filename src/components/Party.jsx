@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { generate } from 'shortid';
 
-import partyActions from '../actions/party';
+import partyActions from '../store/actions';
+import Characters from './Characters';
 
-const Party = ({ onAdd, parties }) => {
-  const handleAdd = () => onAdd(generate());
+const Party = ({ addCharacter, addParty, parties }) => {
+  const handleAdd = () => addParty(generate());
   return (
     <div>
       <h2>
@@ -17,10 +18,13 @@ const Party = ({ onAdd, parties }) => {
       </button>
       <hr />
       {
-        parties.map(party => (
-          <p key={party}>
-            {party}
-          </p>
+        parties.map(({ id, characters }) => (
+          <div key={id}>
+            <p>
+              {id}
+            </p>
+            <Characters partyId={id} characters={characters} addCharacter={addCharacter} />
+          </div>
         ))
       }
     </div>
@@ -28,16 +32,21 @@ const Party = ({ onAdd, parties }) => {
 };
 
 Party.propTypes = {
-  onAdd: PropTypes.func.isRequired,
-  parties: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addCharacter: PropTypes.func.isRequired,
+  addParty: PropTypes.func.isRequired,
+  parties: PropTypes.arrayOf(PropTypes.shape({
+    characters: PropTypes.array,
+    id: PropTypes.string,
+  })).isRequired,
 };
 
 const mapStateToProps = state => ({
-  parties: state.party,
+  parties: state.parties,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onAdd: id => dispatch(partyActions.add(id)),
+  addParty: id => dispatch(partyActions.addParty(id)),
+  addCharacter: (partyId, id) => dispatch(partyActions.addCharacter(partyId, id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Party);
