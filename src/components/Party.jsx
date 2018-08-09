@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { generate } from 'shortid';
 
-
 import partyActions from '../actions/party';
 
 const Party = ({ onAdd, parties }) => {
