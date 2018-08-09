@@ -22,10 +22,6 @@ const reducer = (state = initState, action) => {
           }
           return party;
         }),
-        // parties: state.parties.concat({
-        //   characters: [],
-        //   id: action.id,
-        // }),
       };
 
     case constants.ADD_PARTY:
@@ -34,6 +30,20 @@ const reducer = (state = initState, action) => {
         parties: state.parties.concat({
           characters: [],
           id: action.id,
+        }),
+      };
+
+    case constants.UPDATE_PARTY:
+      return {
+        ...state,
+        parties: state.parties.map((party) => {
+          if (party.id === action.id) {
+            return {
+              ...party,
+              [action.path]: action.value,
+            };
+          }
+          return party;
         }),
       };
 

@@ -6,7 +6,9 @@ import { generate } from 'shortid';
 import partyActions from '../store/actions';
 import Characters from './Characters';
 
-const Party = ({ addCharacter, addParty, parties }) => {
+const Party = ({
+  addCharacter, addParty, parties, updateParty,
+}) => {
   const handleAdd = () => addParty(generate());
   return (
     <div>
@@ -18,14 +20,21 @@ const Party = ({ addCharacter, addParty, parties }) => {
       </button>
       <hr />
       {
-        parties.map(({ id, characters }) => (
-          <div key={id}>
-            <p>
-              {id}
-            </p>
-            <Characters partyId={id} characters={characters} addCharacter={addCharacter} />
-          </div>
-        ))
+        parties.map(({ id, characters, name }) => {
+          const handleNameChange = ({ target }) => {
+            const value = target.value || null;
+            updateParty(id, 'name', value);
+          };
+          return (
+            <div key={id}>
+              <p>
+                {`${name || ''} (${id})`}
+              </p>
+              <input onChange={handleNameChange} placeholder="Name your Party" />
+              <Characters partyId={id} characters={characters} addCharacter={addCharacter} />
+            </div>
+          );
+        })
       }
     </div>
   );
@@ -37,7 +46,9 @@ Party.propTypes = {
   parties: PropTypes.arrayOf(PropTypes.shape({
     characters: PropTypes.array,
     id: PropTypes.string,
+    name: PropTypes.string,
   })).isRequired,
+  updateParty: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -47,6 +58,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addParty: id => dispatch(partyActions.addParty(id)),
   addCharacter: (partyId, id) => dispatch(partyActions.addCharacter(partyId, id)),
+  updateParty: (id, path, value) => dispatch(partyActions.updateParty(id, path, value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Party);

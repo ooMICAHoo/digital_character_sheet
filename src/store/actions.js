@@ -8,6 +8,7 @@
 export const constants = {
   ADD_PARTY: 'ADD_PARTY',
   ADD_CHARACTER: 'ADD_CHARACTER',
+  UPDATE_PARTY: 'UPDATE_PARTY',
   // CHANGE: 'PARTY_CHANGE',
   // DESTRY: 'PARTY_DESTROY',
   // INDEX: 'PARTY_INDEX',
@@ -24,11 +25,18 @@ const addParty = id => ({
   id,
 });
 
-// create a new party
+// create a new character
 const addCharacter = (partyId, id) => ({
   type: constants.ADD_CHARACTER,
   id,
   partyId,
+});
+
+const updateParty = (id, path, value) => ({
+  type: constants.UPDATE_PARTY,
+  id,
+  path,
+  value,
 });
 
 /*
@@ -68,6 +76,7 @@ const index = () => ({
 export default {
   addParty,
   addCharacter,
+  updateParty,
   // change,
   // destroy,
   // show,
