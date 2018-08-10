@@ -11,10 +11,12 @@
   2. Select Party -> 3.
   3. Delete Party
 
-3. Character Index: manage your characters in selected party
+3. Party Detail / Character Index: manage your characters in selected party
   1. Create Character -> 4.
   2. Show Character -> 5.
   3. Delete Character
+  4. Edit Party
+  5. Back to Party Index -> 2.
 
 4. Character Create: create a new character
   1. ability scores

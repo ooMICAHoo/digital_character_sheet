@@ -1,61 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { generate } from 'shortid';
 
 import actions from '../store/actions';
 import Characters from './Characters';
 
-const Party = ({ addParty, parties, updateParty }) => {
-  const handleAdd = () => addParty(generate());
+const Party = ({ cancelViewParty, party: { id, name }, updateParty }) => {
+  const handleNameChange = ({ target }) => {
+    const value = target.value || null;
+    updateParty(id, 'name', value);
+  };
   return (
     <div>
-      <h2>
-        Party!
-      </h2>
-      <button type="button" onClick={handleAdd}>
-        Add
+      <button type="button" onClick={() => cancelViewParty()}>
+        Back
       </button>
-      <hr />
-      {
-        parties.map(({ id, name }) => {
-          const handleNameChange = ({ target }) => {
-            const value = target.value || null;
-            updateParty(id, 'name', value);
-          };
-          return (
-            <div key={id}>
-              <p>
-                {`${name || ''} (${id})`}
-              </p>
-              <label htmlFor="partyName">
-                Party Name
-                <input id="partyName" onChange={handleNameChange} />
-              </label>
-              <Characters partyId={id} />
-            </div>
-          );
-        })
-      }
+      <p>
+        {`${name || 'Untitled'} (${id})`}
+      </p>
+      <label htmlFor="partyName">
+        Party Name
+        <input id="partyName" onChange={handleNameChange} />
+      </label>
+      <Characters partyId={id} />
     </div>
   );
 };
 
 Party.propTypes = {
-  addParty: PropTypes.func.isRequired,
-  parties: PropTypes.arrayOf(PropTypes.shape({
+  cancelViewParty: PropTypes.func.isRequired,
+  party: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
   updateParty: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  parties: state.parties,
+const mapStateToProps = ({ activeParty, parties }) => ({
+  party: parties.find(party => activeParty === party.id),
 });
 
 const mapDispatchToProps = dispatch => ({
-  addParty: id => dispatch(actions.addParty(id)),
+  cancelViewParty: () => dispatch(actions.cancelViewParty()),
   updateParty: (id, path, value) => dispatch(actions.updateParty(id, path, value)),
 });
 

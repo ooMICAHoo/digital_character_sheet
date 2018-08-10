@@ -1,8 +1,7 @@
-// import { combineReducers } from 'redux';
-
 import { constants } from './actions';
 
 export const initState = {
+  activeParty: null,
   parties: [],
 };
 
@@ -31,6 +30,12 @@ const reducer = (state = initState, action) => {
           characters: [],
           id: action.id,
         }),
+      };
+
+    case constants.CANCEL_VIEW_PARTY:
+      return {
+        ...state,
+        activeParty: initState.activeParty,
       };
 
     case constants.UPDATE_CHARACTER:
@@ -69,10 +74,17 @@ const reducer = (state = initState, action) => {
         }),
       };
 
+    case constants.VIEW_PARTY: {
+      // const activeParty = state.parties.find(party => party.id === action.id);
+      return {
+        ...state,
+        activeParty: action.id,
+      };
+    }
+
     default:
       return state;
   }
 };
 
-// export default combineReducers({ character, party });
 export default reducer;
