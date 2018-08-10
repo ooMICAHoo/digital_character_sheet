@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { generate } from 'shortid';
 
-import partyActions from '../store/actions';
+import actions from '../store/actions';
 import Characters from './Characters';
 
-const Party = ({
-  addCharacter, addParty, parties, updateParty,
-}) => {
+const Party = ({ addParty, parties, updateParty }) => {
   const handleAdd = () => addParty(generate());
   return (
     <div>
@@ -20,7 +18,7 @@ const Party = ({
       </button>
       <hr />
       {
-        parties.map(({ id, characters, name }) => {
+        parties.map(({ id, name }) => {
           const handleNameChange = ({ target }) => {
             const value = target.value || null;
             updateParty(id, 'name', value);
@@ -30,8 +28,11 @@ const Party = ({
               <p>
                 {`${name || ''} (${id})`}
               </p>
-              <input onChange={handleNameChange} placeholder="Name your Party" />
-              <Characters partyId={id} characters={characters} addCharacter={addCharacter} />
+              <label htmlFor="partyName">
+                Party Name
+                <input id="partyName" onChange={handleNameChange} />
+              </label>
+              <Characters partyId={id} />
             </div>
           );
         })
@@ -41,10 +42,8 @@ const Party = ({
 };
 
 Party.propTypes = {
-  addCharacter: PropTypes.func.isRequired,
   addParty: PropTypes.func.isRequired,
   parties: PropTypes.arrayOf(PropTypes.shape({
-    characters: PropTypes.array,
     id: PropTypes.string,
     name: PropTypes.string,
   })).isRequired,
@@ -56,9 +55,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addParty: id => dispatch(partyActions.addParty(id)),
-  addCharacter: (partyId, id) => dispatch(partyActions.addCharacter(partyId, id)),
-  updateParty: (id, path, value) => dispatch(partyActions.updateParty(id, path, value)),
+  addParty: id => dispatch(actions.addParty(id)),
+  updateParty: (id, path, value) => dispatch(actions.updateParty(id, path, value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Party);

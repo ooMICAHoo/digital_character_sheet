@@ -6,8 +6,9 @@
  * action type constants
  */
 export const constants = {
-  ADD_PARTY: 'ADD_PARTY',
   ADD_CHARACTER: 'ADD_CHARACTER',
+  ADD_PARTY: 'ADD_PARTY',
+  UPDATE_CHARACTER: 'UPDATE_CHARACTER',
   UPDATE_PARTY: 'UPDATE_PARTY',
   // CHANGE: 'PARTY_CHANGE',
   // DESTRY: 'PARTY_DESTROY',
@@ -19,17 +20,25 @@ export const constants = {
  * syncronous actions
  */
 
+// create a new character
+const addCharacter = (partyId, id) => ({
+  type: constants.ADD_CHARACTER,
+  id,
+  partyId,
+});
+
 // create a new party
 const addParty = id => ({
   type: constants.ADD_PARTY,
   id,
 });
 
-// create a new character
-const addCharacter = (partyId, id) => ({
-  type: constants.ADD_CHARACTER,
-  id,
+const updateCharacter = (partyId, id, path, value) => ({
+  type: constants.UPDATE_CHARACTER,
   partyId,
+  id,
+  path,
+  value,
 });
 
 const updateParty = (id, path, value) => ({
@@ -74,8 +83,9 @@ const index = () => ({
  * export
  */
 export default {
-  addParty,
   addCharacter,
+  addParty,
+  updateCharacter,
   updateParty,
   // change,
   // destroy,

@@ -33,6 +33,28 @@ const reducer = (state = initState, action) => {
         }),
       };
 
+    case constants.UPDATE_CHARACTER:
+      return {
+        ...state,
+        parties: state.parties.map((party) => {
+          if (party.id === action.partyId) {
+            return {
+              ...party,
+              characters: party.characters.map((character) => {
+                if (character.id === action.id) {
+                  return {
+                    ...character,
+                    [action.path]: action.value,
+                  };
+                }
+                return character;
+              }),
+            };
+          }
+          return party;
+        }),
+      };
+
     case constants.UPDATE_PARTY:
       return {
         ...state,

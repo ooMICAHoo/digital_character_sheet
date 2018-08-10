@@ -21,4 +21,4 @@
 ## UI
 - [ ] Sketches of Character layout
 - [ ] Discuss preferred "user flow"
-- [ ] Create a React Web App
+- [X] Create a React Web App
