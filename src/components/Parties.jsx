@@ -8,7 +8,7 @@ import actions from '../store/actions';
 const Parties = ({ addParty, parties, viewParty }) => {
   const handleAdd = () => addParty(generate());
   return (
-    <div className="party-component">
+    <div className="button-layout">
       <button className="main-button" type="button" onClick={handleAdd}>
         Add Party
       </button>

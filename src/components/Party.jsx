@@ -12,8 +12,8 @@ const Party = ({ cancelViewParty, party: { id, name }, updateParty }) => {
   };
   return (
     <div>
-      <button type="button" onClick={() => cancelViewParty()}>
-        Back
+      <button className="back-button" type="button" onClick={() => cancelViewParty()}>
+        &lt;
       </button>
       <p>
         {`${name || 'Untitled'} (${id})`}

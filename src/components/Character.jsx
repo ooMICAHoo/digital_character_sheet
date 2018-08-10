@@ -13,8 +13,8 @@ const Character = ({
   };
   return (
     <div style={{ marginLeft: '3em' }}>
-      <button type="button" onClick={() => cancelViewCharacter()}>
-        Back
+      <button className="back-button" type="button" onClick={() => cancelViewCharacter()}>
+      &lt;
       </button>
       <div key={character.id}>
         <h3>

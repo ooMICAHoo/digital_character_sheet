@@ -16,7 +16,7 @@ const App = ({ activeCharacter, activeParty }) => {
   }
   return (
     <div className="app">
-      <h1>
+      <h1 className="header">
         Creature Crawl
       </h1>
       {component}
