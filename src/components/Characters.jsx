@@ -14,16 +14,18 @@ const Characters = ({
       <h2>
         {`Characters (${characters.length})`}
       </h2>
-      <button type="button" onClick={handleAdd}>
-        Add Character
-      </button>
-      {
-        characters.map(({ id, name }) => (
-          <button key={id} type="button" onClick={() => viewCharacter(id)}>
-            {`${name || ''} (${id})`}
-          </button>
-        ))
-      }
+      <div className="button-layout">
+        <button className="main-button" type="button" onClick={handleAdd}>
+          Add Character
+        </button>
+        {
+          characters.map(({ id, name }) => (
+            <button className="main-button" key={id} type="button" onClick={() => viewCharacter(id)}>
+              {`${name || ''} (${id})`}
+            </button>
+          ))
+        }
+      </div>
     </div>
   );
 };

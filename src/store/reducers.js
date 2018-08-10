@@ -11,6 +11,7 @@ const reducer = (state = initState, action) => {
     case constants.ADD_CHARACTER:
       return {
         ...state,
+        activeCharacter: action.id,
         parties: state.parties.map((party) => {
           if (party.id === action.partyId) {
             return {
@@ -27,6 +28,7 @@ const reducer = (state = initState, action) => {
     case constants.ADD_PARTY:
       return {
         ...state,
+        activeParty: action.id,
         parties: state.parties.concat({
           characters: [],
           id: action.id,
