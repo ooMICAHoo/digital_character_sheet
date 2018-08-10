@@ -8,13 +8,13 @@ import actions from '../store/actions';
 const Parties = ({ addParty, parties, viewParty }) => {
   const handleAdd = () => addParty(generate());
   return (
-    <div>
-      <button type="button" onClick={handleAdd}>
+    <div className="party-component">
+      <button className="main-button" type="button" onClick={handleAdd}>
         Add Party
       </button>
       {
         parties.map(({ id, name }) => (
-          <button key={id} type="button" onClick={() => viewParty(id)}>
+          <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
             {`${name || 'Untitled'} (${id})`}
           </button>
         ))

@@ -6,9 +6,9 @@ import Parties from './Parties';
 import Party from './Party';
 
 const App = ({ activeParty }) => (
-  <div>
+  <div className="app">
     <h1>
-      CREATURE CRAWL
+      Creature Crawl
     </h1>
     {/* activeCharacter ? */}
     { activeParty ? (<Party />) : (<Parties />) }
