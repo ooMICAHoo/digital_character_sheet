@@ -6,6 +6,8 @@ import Character from './Character';
 import Parties from './Parties';
 import Party from './Party';
 
+require('../favicon.ico');
+
 const App = ({ activeCharacter, activeParty }) => {
   let component = (<Parties />);
   if (activeParty && !activeCharacter) {

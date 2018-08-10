@@ -15,9 +15,6 @@ const Characters = ({
         {`Characters (${characters.length})`}
       </h2>
       <div className="button-layout">
-        <button className="main-button" type="button" onClick={handleAdd}>
-          Add Character
-        </button>
         {
           characters.map(({ id, name }) => (
             <button className="main-button" key={id} type="button" onClick={() => viewCharacter(id)}>
@@ -25,6 +22,9 @@ const Characters = ({
             </button>
           ))
         }
+        <button className="main-button add-button" type="button" title="Create a new Character" onClick={handleAdd}>
+          +
+        </button>
       </div>
     </div>
   );

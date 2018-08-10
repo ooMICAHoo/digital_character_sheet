@@ -9,9 +9,6 @@ const Parties = ({ addParty, parties, viewParty }) => {
   const handleAdd = () => addParty(generate());
   return (
     <div className="button-layout">
-      <button className="main-button" type="button" onClick={handleAdd}>
-        Add Party
-      </button>
       {
         parties.map(({ id, name }) => (
           <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
@@ -19,6 +16,9 @@ const Parties = ({ addParty, parties, viewParty }) => {
           </button>
         ))
       }
+      <button className="main-button add-button" type="button" title="Create a new party" onClick={handleAdd}>
+        +
+      </button>
     </div>
   );
 };
