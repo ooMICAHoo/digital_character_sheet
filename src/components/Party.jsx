@@ -16,7 +16,7 @@ const Party = ({ cancelViewParty, party: { id, name }, updateParty }) => {
         &lt;
       </button>
       <p>
-        {`${name || 'Untitled'} (${id})`}
+        {`${name || 'Untitled'}`}
       </p>
       <label htmlFor="partyName">
         Party Name

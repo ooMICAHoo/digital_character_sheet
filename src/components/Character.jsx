@@ -18,7 +18,7 @@ const Character = ({
       </button>
       <div key={character.id}>
         <h3>
-          {`${character.name || ''} (${character.id})`}
+          {`${character.name || ''}`}
         </h3>
         <CharacterForm character={character} onChange={handleChange} />
       </div>
