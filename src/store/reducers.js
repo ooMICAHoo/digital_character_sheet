@@ -3,27 +3,25 @@ import schema from '../../schema/character.schema.json';
 
 const abilities = schema ? Object.keys(schema.properties.abilities.properties) : {};
 
-// 3(-3), 4-5(-2), 6-8(-1), 9-12(+0), 13-15(+1), 16-17(+2), 18(+3)
-
 const calculateValues = (path, value) => {
   const pathsToPerformCalculation = abilities;
   const calculatedValues = {};
   if (pathsToPerformCalculation.includes(path)) {
     let mod = null;
-    if (value <= 0) {
-      mod = null;
-    }
     if (value <= 3) {
       mod = -3;
-    }
-    if (value > 3 && value <= 5) {
+    } else if (value <= 5) {
       mod = -2;
-    }
-    if (value > 5 && value <= 8) {
+    } else if (value <= 8) {
       mod = -1;
-    }
-    if (value > 8 && value <= 12) {
+    } else if (value <= 12) {
       mod = 0;
+    } else if (value <= 15) {
+      mod = 1;
+    } else if (value <= 17) {
+      mod = 2;
+    } else if (value > 17) {
+      mod = 3;
     }
     calculatedValues[`${path}Mod`] = mod;
   }

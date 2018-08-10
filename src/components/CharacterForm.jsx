@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import schema from '../../schema/character.schema.json';
+import Ability from './Ability';
+
+const abilities = schema ? Object.keys(schema.properties.abilities.properties) : {};
+
 const CharacterForm = ({ character, onChange }) => {
   const handleNameChange = ({ target }) => {
     const value = target.value || null;
     onChange('name', value);
   };
-  const handleSTRChange = ({ target }) => {
+  const handleAbilityChange = (ability, { target }) => {
     const valueAsNumber = Number(target.value);
-    const value = valueAsNumber || null;
-    console.log(target.value);
-    console.log(valueAsNumber);
-    console.log(value);
-    onChange('strength', value);
+    onChange(ability, valueAsNumber);
   };
   return (
     <div>
@@ -20,23 +21,23 @@ const CharacterForm = ({ character, onChange }) => {
         Character Name
         <input id="characterName" onChange={handleNameChange} value={character.name || ''} />
       </label>
-      <label htmlFor="strength">
-        Strength
-        <input id="strength" onChange={handleSTRChange} value={character.strength || ''} />
-      </label>
-      <p>
-        {`Strength Mod: ${character.strengthMod}`}
-      </p>
+      {
+        abilities.map(ability => (
+          <Ability
+            key={ability}
+            ability={ability}
+            character={character}
+            onChange={handleAbilityChange}
+          />
+        ))
+      }
     </div>
   );
 };
 
 CharacterForm.propTypes = {
   character: PropTypes.shape({
-    // id: PropTypes.string,
     name: PropTypes.string,
-    strength: PropTypes.string,
-    strengthMod: PropTypes.string,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
 };
