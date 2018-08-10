@@ -7,7 +7,11 @@ const CharacterForm = ({ character, onChange }) => {
     onChange('name', value);
   };
   const handleSTRChange = ({ target }) => {
-    const value = target.value || null;
+    const valueAsNumber = Number(target.value);
+    const value = valueAsNumber || null;
+    console.log(target.value);
+    console.log(valueAsNumber);
+    console.log(value);
     onChange('strength', value);
   };
   return (
@@ -20,6 +24,9 @@ const CharacterForm = ({ character, onChange }) => {
         Strength
         <input id="strength" onChange={handleSTRChange} value={character.strength || ''} />
       </label>
+      <p>
+        {`Strength Mod: ${character.strengthMod}`}
+      </p>
     </div>
   );
 };
@@ -27,8 +34,9 @@ const CharacterForm = ({ character, onChange }) => {
 CharacterForm.propTypes = {
   character: PropTypes.shape({
     // id: PropTypes.string,
-    // name: PropTypes.string,
+    name: PropTypes.string,
     strength: PropTypes.string,
+    strengthMod: PropTypes.string,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
 };

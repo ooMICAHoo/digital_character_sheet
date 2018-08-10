@@ -33,101 +33,51 @@
       "description": "Character alignment",
       "type": "string"
     },
-    "strength": {
+    "abilities": {
       "type": "object",
       "properties": {
-        "base": {
+        "strength": {
           "type": "integer"
         },
-        "current": {
+        "agility": {
           "type": "integer"
         },
-        "modifier": {
-          "description": "(calculated)",
+        "stamina": {
+          "type": "integer"
+        },
+        "personality": {
+          "type": "integer"
+        },
+        "intelligence": {
+          "type": "integer"
+        },
+        "luck": {
           "type": "integer"
         }
-      },
-      "required": ["base"]
+      }
     },
-    "agility": {
+    "modifiers": {
       "type": "object",
       "properties": {
-        "base": {
+        "strengthMod": {
           "type": "integer"
         },
-        "current": {
+        "agilityMod": {
           "type": "integer"
         },
-        "modifier": {
-          "description": "(calculated)",
+        "staminaMod": {
+          "type": "integer"
+        },
+        "personalityMod": {
+          "type": "integer"
+        },
+        "intelligenceMod": {
+          "type": "integer"
+        },
+        "luckMod": {
           "type": "integer"
         }
-      },
-      "required": ["base"]
-    },
-    "stamina": {
-      "type": "object",
-      "properties": {
-        "base": {
-          "type": "integer"
-        },
-        "current": {
-          "type": "integer"
-        },
-        "modifier": {
-          "description": "(calculated)",
-          "type": "integer"
-        }
-      },
-      "required": ["base"]
-    },
-    "personality": {
-      "type": "object",
-      "properties": {
-        "base": {
-          "type": "integer"
-        },
-        "current": {
-          "type": "integer"
-        },
-        "modifier": {
-          "description": "(calculated)",
-          "type": "integer"
-        }
-      },
-      "required": ["base"]
-    },
-    "intelligence": {
-      "type": "object",
-      "properties": {
-        "base": {
-          "type": "integer"
-        },
-        "current": {
-          "type": "integer"
-        },
-        "modifier": {
-          "description": "(calculated)",
-          "type": "integer"
-        }
-      },
-      "required": ["base"]
-    },
-    "luck": {
-      "type": "object",
-      "properties": {
-        "base": {
-          "type": "integer"
-        },
-        "current": {
-          "type": "integer"
-        },
-        "modifier": {
-          "description": "(calculated)",
-          "type": "integer"
-        }
-      },
-      "required": ["base"]
+      }
     },
     "armor_class": {
       "type": "integer"
@@ -190,7 +140,7 @@
     },
     "inventory": {
       "type": "string"
-    },
+    }
   },
   "required": ["id", "name", "title", "experience", "alignment", "strength", "agility", "stamina", "personality", "intelligence", "luck", "hit_points"]
 }
