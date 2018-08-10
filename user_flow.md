@@ -13,15 +13,14 @@
 
 3. Party Detail / Character Index: manage your characters in selected party
   1. Create Character -> 4.
-  2. Show Character -> 5.
+  2. Select Character -> 5.
   3. Delete Character
   4. Edit Party
   5. Back to Party Index -> 2.
 
-4. Character Create: create a new character
+4. Character Detail:
   1. ability scores
   2. class/title/alignment
   3. name/hp/xp
-  4. save -> 5.
+  5. Back to Party Detail -> 3.
 
-5. Character Show: view and edit existing character

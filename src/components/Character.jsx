@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import actions from '../store/actions';
+import CharacterForm from './CharacterForm';
 
 const Character = ({
   cancelViewCharacter, character, activeParty, updateCharacter,
 }) => {
-  const handleNameChange = ({ target }) => {
-    const value = target.value || null;
-    updateCharacter(activeParty, character.id, 'name', value);
+  const handleChange = (path, value) => {
+    updateCharacter(activeParty, character.id, path, value);
   };
   return (
     <div style={{ marginLeft: '3em' }}>
@@ -20,10 +20,7 @@ const Character = ({
         <h3>
           {`${character.name || ''} (${character.id})`}
         </h3>
-        <label htmlFor="characterName">
-          Character Name
-          <input id="characterName" onChange={handleNameChange} />
-        </label>
+        <CharacterForm character={character} onChange={handleChange} />
       </div>
     </div>
   );
