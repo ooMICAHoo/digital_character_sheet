@@ -18,7 +18,7 @@ const Characters = ({
         {
           characters.map(({ id, name }) => (
             <button className="main-button" key={id} type="button" onClick={() => viewCharacter(id)}>
-              {`${name || ''} (${id})`}
+              {`${name || ''}`}
             </button>
           ))
         }

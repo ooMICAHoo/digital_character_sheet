@@ -1,4 +1,32 @@
 import { constants } from './actions';
+import schema from '../../schema/character.schema.json';
+
+const abilities = schema ? Object.keys(schema.properties.abilities.properties) : {};
+
+const calculateValues = (path, value) => {
+  const pathsToPerformCalculation = abilities;
+  const calculatedValues = {};
+  if (pathsToPerformCalculation.includes(path)) {
+    let mod = null;
+    if (value <= 3) {
+      mod = -3;
+    } else if (value <= 5) {
+      mod = -2;
+    } else if (value <= 8) {
+      mod = -1;
+    } else if (value <= 12) {
+      mod = 0;
+    } else if (value <= 15) {
+      mod = 1;
+    } else if (value <= 17) {
+      mod = 2;
+    } else if (value > 17) {
+      mod = 3;
+    }
+    calculatedValues[`${path}Mod`] = mod;
+  }
+  return calculatedValues;
+};
 
 export const initState = {
   activeCharacter: null,
@@ -48,7 +76,9 @@ const reducer = (state = initState, action) => {
         activeParty: initState.activeParty,
       };
 
-    case constants.UPDATE_CHARACTER:
+    case constants.UPDATE_CHARACTER: {
+      const calculatedValues = calculateValues(action.path, action.value);
+
       return {
         ...state,
         parties: state.parties.map((party) => {
@@ -60,6 +90,7 @@ const reducer = (state = initState, action) => {
                   return {
                     ...character,
                     [action.path]: action.value,
+                    ...calculatedValues,
                   };
                 }
                 return character;
@@ -69,6 +100,7 @@ const reducer = (state = initState, action) => {
           return party;
         }),
       };
+    }
 
     case constants.UPDATE_PARTY:
       return {
