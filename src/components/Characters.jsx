@@ -6,37 +6,23 @@ import { connect } from 'react-redux';
 import actions from '../store/actions';
 
 const Characters = ({
-  addCharacter, characters, partyId, updateCharacter,
+  addCharacter, characters, partyId, viewCharacter,
 }) => {
   const handleAdd = () => addCharacter(partyId, generate());
   return (
-    <div style={{ marginLeft: '3em' }}>
-      <p>
-        <strong>
-          {`Characters (${characters.length})`}
-        </strong>
-      </p>
+    <div>
+      <h2>
+        {`Characters (${characters.length})`}
+      </h2>
       <button type="button" onClick={handleAdd}>
-        Add
+        Add Character
       </button>
       {
-        characters.map(({ id, name }) => {
-          const handleNameChange = ({ target }) => {
-            const value = target.value || null;
-            updateCharacter(partyId, id, 'name', value);
-          };
-          return (
-            <div key={id}>
-              <p>
-                {`${name || ''} (${id})`}
-              </p>
-              <label htmlFor="characterName">
-                Character Name
-                <input id="characterName" onChange={handleNameChange} />
-              </label>
-            </div>
-          );
-        })
+        characters.map(({ id, name }) => (
+          <button key={id} type="button" onClick={() => viewCharacter(id)}>
+            {`${name || ''} (${id})`}
+          </button>
+        ))
       }
     </div>
   );
@@ -44,7 +30,7 @@ const Characters = ({
 
 Characters.propTypes = {
   addCharacter: PropTypes.func.isRequired,
-  updateCharacter: PropTypes.func.isRequired,
+  viewCharacter: PropTypes.func.isRequired,
   characters: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
@@ -58,8 +44,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   addCharacter: (partyId, id) => dispatch(actions.addCharacter(partyId, id)),
-  updateCharacter: (partyId, id, path, value) => dispatch(actions
-    .updateCharacter(partyId, id, path, value)),
+  viewCharacter: id => dispatch(actions.viewCharacter(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Characters);
