@@ -22,3 +22,12 @@
 - [ ] Sketches of Character layout
 - [ ] Discuss preferred "user flow"
 - [X] Create a React Web App
+
+
+## Name
+- Creature Crawl
+- Crawl Keeper
+- Crawl Creeper
+- Party Creep
+- Creature Creepers
+- Creeping Creatures

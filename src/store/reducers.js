@@ -1,6 +1,7 @@
 import { constants } from './actions';
 
 export const initState = {
+  activeCharacter: null,
   activeParty: null,
   parties: [],
 };
@@ -31,6 +32,13 @@ const reducer = (state = initState, action) => {
           id: action.id,
         }),
       };
+
+    case constants.CANCEL_VIEW_CHARACTER:
+      return {
+        ...state,
+        activeCharacter: initState.activeCharacter,
+      };
+
 
     case constants.CANCEL_VIEW_PARTY:
       return {
@@ -74,8 +82,14 @@ const reducer = (state = initState, action) => {
         }),
       };
 
+    case constants.VIEW_CHARACTER: {
+      return {
+        ...state,
+        activeCharacter: action.id,
+      };
+    }
+
     case constants.VIEW_PARTY: {
-      // const activeParty = state.parties.find(party => party.id === action.id);
       return {
         ...state,
         activeParty: action.id,
