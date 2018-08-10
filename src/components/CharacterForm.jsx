@@ -11,14 +11,12 @@ const CharacterForm = ({ character, onChange }) => {
     onChange('strength', value);
   };
   return (
-    <div>
-      <label htmlFor="characterName">
-        Character Name
-        <input id="characterName" onChange={handleNameChange} value={character.name || ''} />
+    <div className="character-form">
+      <label htmlFor="characterName" className="character-label">
+        <input id="characterName" className="character-input" placeholder="Character Name" onChange={handleNameChange} value={character.name || ''} />
       </label>
-      <label htmlFor="strength">
-        Strength
-        <input id="strength" onChange={handleSTRChange} value={character.strength || ''} />
+      <label htmlFor="strength" className="character-label">
+        <input id="strength" className="character-input" placeholder="Strength" onChange={handleSTRChange} value={character.strength || ''} />
       </label>
     </div>
   );
