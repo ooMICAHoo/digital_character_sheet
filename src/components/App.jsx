@@ -7,6 +7,7 @@ import Parties from './Parties';
 import Party from './Party';
 
 require('../favicon.ico');
+require('../styles.css');
 
 const App = ({ activeCharacter, activeParty }) => {
   let component = (<Parties />);

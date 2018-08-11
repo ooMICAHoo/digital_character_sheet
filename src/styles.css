@@ -1,0 +1,71 @@
+body {
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #6DC066;
+  text-align: center;
+  height: 50vh;
+  padding-bottom: 50px;
+}
+.header {
+  padding-bottom: 30px;
+  border-bottom: solid 3px #6DC066;
+}
+.button-layout {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  width: 550px;
+}
+.character-form {
+  font-size: 30px;
+}
+.character-label{
+  padding: 10px;
+}
+.character-input {
+  color: #6DC066;
+  font-size: 40px;
+  border: none;
+  border-bottom: solid 1px #6DC066;
+  outline: none;
+}
+.character-input:focus {
+
+}
+.main-button {
+  background-color: #6DC066;
+  color: white;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 10%;
+  margin: 5px;
+  vertical-align: bottom;
+  transition: all .1s;
+}
+.main-button:hover {
+  border: solid 2px #6DC066 ;
+  background-color: white;
+  color: #6DC066;
+  cursor: pointer;
+  transition: all .2s;
+}
+.add-button {
+  font-size: 40px;
+}
+.back-button {
+  position: absolute;
+  margin-left: 0;
+  height: 30px;
+  width: 30px;
+  border: solid 2px #6DC066;
+  border-radius: 100%;
+  background-color: white;
+  color: #6DC066;
+  font-size: 20px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #6DC066;
+  opacity: .5; 
+}
