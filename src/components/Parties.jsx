@@ -8,17 +8,23 @@ import actions from '../store/actions';
 const Parties = ({ addParty, parties, viewParty }) => {
   const handleAdd = () => addParty(generate());
   return (
-    <div className="button-layout">
-      {
-        parties.map(({ id, name }) => (
-          <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
-            {`${name || 'Untitled'} (${id})`}
-          </button>
-        ))
-      }
-      <button className="main-button add-button" type="button" title="Create a new party" onClick={handleAdd}>
-        +
-      </button>
+    <div>
+      <p className="welcome">
+        Welcome adventurer!
+        To begin a party and start creating your characters, click the + button below.
+      </p>
+      <div className="button-layout">
+        {
+          parties.map(({ id, name }) => (
+            <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
+              {`${name || 'Untitled'} (${id})`}
+            </button>
+          ))
+        }
+        <button className="main-button add-button" type="button" title="Create a new party" onClick={handleAdd}>
+          +
+        </button>
+      </div>
     </div>
   );
 };
