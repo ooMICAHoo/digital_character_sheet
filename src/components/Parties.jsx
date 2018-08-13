@@ -7,6 +7,27 @@ import actions from '../store/actions';
 
 const Parties = ({ addParty, parties, viewParty }) => {
   const handleAdd = () => addParty(generate());
+  if (parties.length > 0) {
+    return (
+      <div>
+        <p className="helpful-text">
+          Select a party or start a new one.
+        </p>
+        <div className="button-layout">
+          {
+            parties.map(({ id, name }) => (
+              <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
+                {`${name || 'Untitled'}`}
+              </button>
+            ))
+          }
+          <button className="main-button add-button" type="button" title="Create a new party" onClick={handleAdd}>
+            +
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <p className="welcome">
@@ -17,7 +38,7 @@ const Parties = ({ addParty, parties, viewParty }) => {
         {
           parties.map(({ id, name }) => (
             <button className="main-button" key={id} type="button" onClick={() => viewParty(id)}>
-              {`${name || 'Untitled'} (${id})`}
+              {`${name || 'Untitled'}`}
             </button>
           ))
         }

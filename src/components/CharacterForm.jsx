@@ -18,7 +18,7 @@ const CharacterForm = ({ character, onChange }) => {
   return (
     <div className="character-form">
       <label htmlFor="characterName" className="character-label">
-        <input id="characterName" className="character-input" placeholder="Character Name" onChange={handleNameChange} value={character.name || ''} />
+        <input id="characterName" className="input character-input" placeholder="Character Name" onChange={handleNameChange} value={character.name || ''} />
       </label>
       {
         abilities.map(ability => (

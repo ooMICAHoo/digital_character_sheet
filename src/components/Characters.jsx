@@ -11,9 +11,6 @@ const Characters = ({
   const handleAdd = () => addCharacter(partyId, generate());
   return (
     <div>
-      <h2>
-        {`Characters (${characters.length})`}
-      </h2>
       <div className="button-layout">
         {
           characters.map(({ id, name }) => (

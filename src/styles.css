@@ -1,38 +1,43 @@
 body {
   background-color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #6DC066;
+  color: black;
   text-align: center;
   height: 50vh;
   padding-bottom: 50px;
 }
 
 .header {
-  width: 200px;
+  color: #6DC066;
+  max-width: 350px;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 10px;
-  border-bottom: solid 3px #6DC066;
-  border-right: solid 3px #6DC066;
-  font-size: 30pt;
+  border-bottom: solid 3px #6dc066;
+  font-size: 35pt;
   font-weight: bold;
+  cursor: default;
 }
 
 .welcome {
-  position: absolute;
-  margin: auto;
-  margin-top: 30px;
-  right: 0;
-  left: 0;
-  top: 0;
-  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  font-size: 15pt;
+}
+
+.helpful-text {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
   font-size: 15pt;
 }
 
 .button-layout {
-  position: absolute;
-  margin: auto;
-  right: 0;
-  left: 0;
-  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 550px;
 }
 
 .character-form {
@@ -43,12 +48,33 @@ body {
   padding: 10px;
 }
 
-.character-input {
+.input {
   color: #6DC066;
-  font-size: 40px;
   border: none;
   border-bottom: solid 1px #6DC066;
   outline: none;
+}
+
+.party-name-input {
+  color: black;
+  text-align: center;
+  border-bottom: none;
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.party-name-input::placeholder {
+  color: black;
+  text-align: center;
+  opacity: 1;
+}
+
+.party-name-input:focus::placeholder {
+  opacity: .3;
+}
+
+.character-input {
+  font-size: 40px;
 }
 
 .character-input:focus {
@@ -80,8 +106,6 @@ body {
 }
 
 .back-button {
-  position: absolute;
-  margin-left: 0;
   height: 30px;
   width: 30px;
   border: solid 2px #6DC066;
@@ -89,6 +113,10 @@ body {
   background-color: white;
   color: #6DC066;
   font-size: 20px;
+}
+
+.back-button:hover {
+  cursor: pointer;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

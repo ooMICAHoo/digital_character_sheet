@@ -15,13 +15,15 @@ const Party = ({ cancelViewParty, party: { id, name }, updateParty }) => {
       <button className="back-button" type="button" onClick={() => cancelViewParty()}>
         &lt;
       </button>
-      <p>
-        {`${name || 'Untitled'}`}
-      </p>
+      <br />
+      <br />
       <label htmlFor="partyName">
-        Party Name
-        <input id="partyName" onChange={handleNameChange} />
+        <input id="partyName" className="input party-name-input" placeholder={`${name || 'Party Name'}`} onChange={handleNameChange} />
       </label>
+      <br />
+      <p className="helpful-text">
+        Create a new character or view an existing one
+      </p>
       <Characters partyId={id} />
     </div>
   );
