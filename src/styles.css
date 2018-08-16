@@ -1,3 +1,9 @@
+
+/*****************
+OVERARCHING STYLES
+/*****************
+
+/** BODY **/
 body {
   background-color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +12,31 @@ body {
   height: 50vh;
   padding-bottom: 50px;
 }
+/** TEXT PARAGRAPHS **/
+.helpful-text {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  font-size: 15pt;
+}
+/** INPUT **/
+.input {
+  color: #6DC066;
+  border: none;
+  border-bottom: solid 1px #6DC066;
+  outline: none;
+}
+/** PLACEHOLDER **/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #6DC066;
+  opacity: .5;
+}
 
+/**************
+SPECIFIC STYLES
+/**************
+
+/** HEADER **/
 .header {
   color: #6DC066;
   max-width: 350px;
@@ -19,68 +49,19 @@ body {
   font-weight: bold;
   cursor: default;
 }
-
+/** WELCOME PARAGRAPH STYLE **/
 .welcome {
   margin-left: auto;
   margin-right: auto;
   max-width: 400px;
   font-size: 15pt;
 }
-
-.helpful-text {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 400px;
-  font-size: 15pt;
-}
-
+/** BUTTON STYLES **/
 .button-layout {
   margin-left: auto;
   margin-right: auto;
   max-width: 550px;
 }
-
-.character-form {
-  font-size: 30px;
-}
-
-.character-label{
-  padding: 10px;
-}
-
-.input {
-  color: #6DC066;
-  border: none;
-  border-bottom: solid 1px #6DC066;
-  outline: none;
-}
-
-.party-name-input {
-  color: black;
-  text-align: center;
-  border-bottom: none;
-  font-size: 30pt;
-  font-weight: bold;
-}
-
-.party-name-input::placeholder {
-  color: black;
-  text-align: center;
-  opacity: 1;
-}
-
-.party-name-input:focus::placeholder {
-  opacity: .3;
-}
-
-.character-input {
-  font-size: 40px;
-}
-
-.character-input:focus {
-
-}
-
 .main-button {
   background-color: #6DC066;
   color: white;
@@ -92,7 +73,6 @@ body {
   vertical-align: bottom;
   transition: all .1s;
 }
-
 .main-button:hover {
   border: solid 2px #6DC066 ;
   background-color: white;
@@ -100,11 +80,9 @@ body {
   cursor: pointer;
   transition: all .2s;
 }
-
 .add-button {
   font-size: 40px;
 }
-
 .back-button {
   height: 30px;
   width: 30px;
@@ -114,12 +92,38 @@ body {
   color: #6DC066;
   font-size: 20px;
 }
-
 .back-button:hover {
   cursor: pointer;
 }
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #6DC066;
-  opacity: .5;
+/** CHARACTER FORM COMPONENT STYLE **/
+.character-form {
+  font-size: 30px;
 }
+.character-label{
+  padding: 10px;
+}
+/** INPUT STYLES **/
+.party-name-input {
+  color: black;
+  text-align: center;
+  border-bottom: none;
+  font-size: 30pt;
+  font-weight: bold;
+}
+.party-name-input::placeholder {
+  color: black;
+  text-align: center;
+  opacity: 1;
+}
+.party-name-input:focus::placeholder {
+  opacity: .3;
+}
+.character-input {
+  font-size: 40px;
+  margin-bottom: 80px;
+}
+.ability-input {
+  width: 40px;
+  border: solid 1px #6DC066;
+}
+

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const Ability = ({ ability, character, onChange }) => (
   <div>
     <label htmlFor={ability} className="character-label">
-      {ability.toUpperCase()}
-      <input id={ability} className="character-input" onChange={event => onChange(ability, event)} value={character[ability] || ''} />
+      {ability}
+      <input id={ability} className="ability-input input" onChange={event => onChange(ability, event)} value={character[ability] || ''} />
     </label>
     <p>
       {`${ability.toUpperCase()} Mod: ${character[`${ability}Mod`]}`}
